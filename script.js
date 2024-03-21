@@ -38,7 +38,6 @@ form.addEventListener('submit', async (e) => {
 
 	const response = await fetch(apiURL);
 	const data = await response.json();
-	console.log(data);
 
 	const forecastData = data.forecast.forecastday;
 	const temperatureHTML = generateTemperatureHTML(forecastData);
