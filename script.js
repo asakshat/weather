@@ -45,6 +45,15 @@ form.addEventListener('submit', async (e) => {
 	const temperatureHTML = generateTemperatureHTML(forecastData);
 	forecastContainer.innerHTML = temperatureHTML;
 
+	const unsplashApi = `uG0mam9XKvHNebd8ERu4hp4fCc7dca_w892cho1AvMI`;
+	const unsplashURL = `https://api.unsplash.com/photos/random?query=${cityName}&client_id=${unsplashApi}`;
+
+	const unsplashResponse = await fetch(unsplashURL);
+	const unsplashData = await unsplashResponse.json();
+	const rawURL = unsplashData.urls.raw;
+	const img = document.getElementById('img');
+	img.style.backgroundImage = `url(${rawURL})`;
+
 	const temperatureData = forecastData.map((day) => ({
 		date: new Date(day.date).toLocaleDateString('en-US', {
 			weekday: 'short',
@@ -54,16 +63,7 @@ form.addEventListener('submit', async (e) => {
 		avgTemperature: day.day.avgtemp_c,
 	}));
 
-	const existingChartCanvas = document.getElementById('chart');
-	if (existingChartCanvas) {
-		existingChartCanvas.remove();
-	}
-
-	const chartCanvas = document.createElement('canvas');
-	chartCanvas.id = 'chart';
-	document.querySelector('.chart-container').appendChild(chartCanvas);
-
-	new Chart(chartCanvas, {
+	new Chart(document.getElementById('chart'), {
 		type: 'line',
 		data: {
 			labels: temperatureData.map((day) => day.date),
