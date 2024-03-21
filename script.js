@@ -62,7 +62,10 @@ form.addEventListener('submit', async (e) => {
 		}),
 		avgTemperature: day.day.avgtemp_c,
 	}));
-
+	const existingChart = Chart.getChart('chart');
+	if (existingChart) {
+		existingChart.destroy();
+	}
 	new Chart(document.getElementById('chart'), {
 		type: 'line',
 		data: {
