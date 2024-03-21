@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #292929, #1a1a1a);
+
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8)
+}
+
+#weather-form {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 100px;
+    padding: 8px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.forecast-day {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.forecast-day:hover {
+    transform: scale(1.1)
+}
+
+.forecast-day h3 {
+    margin-top: 0;
+}
+
+.forecast-day p {
+    margin: 5px 0;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 800px;
+
+}
+
+@media (max-width: 768px) {
+
+    .chart-container {
+        height: 300px;
+        width: 300px;
+
+    }
+
+    #weather-form {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input[type="text"] {
+        width: 50%;
+        max-width: none;
+    }
+
+    button {
+        width: 30%;
+        max-width: none;
+    }
+
+    .forecast-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}
