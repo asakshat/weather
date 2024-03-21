@@ -15,10 +15,9 @@ const generateTemperatureHTML = (forecastData) => {
 		html += `
             <div class="forecast-day">
                 <h3>${formattedDate}</h3>
-                <img src="${iconUrl}" alt="Weather Icon"> <!-- Display weather icon -->
-                <p>Avg Temperature: ${day.day.avgtemp_c}°C</p>
-                <p>Max Temperature: ${day.day.maxtemp_c}°C</p>
-                <p>Min Temperature: ${day.day.mintemp_c}°C</p>
+                <img src="${iconUrl}" alt="Weather Icon"> 
+                <p>Max: ${day.day.maxtemp_c}°C</p>
+                <p>Min: ${day.day.mintemp_c}°C</p>
             </div>
         `;
 	});
@@ -66,6 +65,7 @@ form.addEventListener('submit', async (e) => {
 	if (existingChart) {
 		existingChart.destroy();
 	}
+
 	new Chart(document.getElementById('chart'), {
 		type: 'line',
 		data: {
@@ -76,27 +76,37 @@ form.addEventListener('submit', async (e) => {
 					data: temperatureData.map((day) => day.avgTemperature),
 					borderColor: 'rgba(255,99,132,1)',
 					borderWidth: 1,
-					backgroundColor: 'rgba(255, 99, 132, 0.2)',
+					backgroundColor: 'rgba(2, 0, 19, 0.49)',
 				},
 			],
 		},
 		options: {
+			plugins: {
+				legend: {
+					labels: {
+						color: 'white',
+						font: {
+							weight: 'bold',
+						},
+					},
+				},
+			},
 			scales: {
 				y: {
 					beginAtZero: false,
 					grid: {
-						color: 'rgba(255,255,255,0.2)',
+						color: 'rgba(255,255,255)',
 					},
 					ticks: {
-						color: 'rgba(255,255,255,0.7)',
+						color: 'rgba(255,255,255)',
 					},
 				},
 				x: {
 					grid: {
-						color: 'rgba(255,255,255,0.2)',
+						color: 'rgba(255,255,255)',
 					},
 					ticks: {
-						color: 'rgba(255,255,255,0.7)',
+						color: 'rgba(255,255,255)',
 					},
 				},
 			},

@@ -11,24 +11,43 @@ body {
 
 }
 
+.overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+
+.overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
 .container {
+    position: relative;
     max-width: 1000px;
     margin: 20px auto;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
-    background-size: cover;
-    background-repeat: no-repeat;
-
+    height: 100vh;
 }
+
 
 
 
 h2 {
     margin-top: 0;
     text-align: center;
+    z-index: 10;
+    position: relative;
 }
 
 form {
@@ -54,7 +73,10 @@ input[type="text"] {
     gap: 20px;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 10;
 }
+
 
 button {
     width: 100px;
@@ -74,19 +96,19 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
+    position: relative;
 }
 
 
 .forecast-day {
     background-color: rgba(255, 255, 255, 0.8);
     color: #333;
-    display: flex;
-    flex-wrap: wrap;
     border: 1px solid #ccc;
     padding: 10px;
     margin: 5px;
     width: 300px;
-    height: 300px;
+    height: 150px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
@@ -96,21 +118,22 @@ button:hover {
     background-color: rgba(173, 216, 230, 0.8);
 }
 
-.forecast-day h3 {
-    margin-top: 0;
-}
 
-.forecast-day p {
-    margin: 5px 0;
-}
 
 .chart-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    width: 100%;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    z-index: 10;
+
 }
+
+
+
 
 @media (max-width: 768px) {
 
