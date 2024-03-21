@@ -54,7 +54,16 @@ form.addEventListener('submit', async (e) => {
 		avgTemperature: day.day.avgtemp_c,
 	}));
 
-	new Chart(document.getElementById('chart'), {
+	const existingChartCanvas = document.getElementById('chart');
+	if (existingChartCanvas) {
+		existingChartCanvas.remove();
+	}
+
+	const chartCanvas = document.createElement('canvas');
+	chartCanvas.id = 'chart';
+	document.querySelector('.chart-container').appendChild(chartCanvas);
+
+	new Chart(chartCanvas, {
 		type: 'line',
 		data: {
 			labels: temperatureData.map((day) => day.date),
